@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+#Comparando duas strings, e verificando se são iguais.
+
 STRING1="$1"
 STRING2="$2"
 
