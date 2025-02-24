@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 #
-#
 # ------------------------------------------------------------------------ #
 # DESCRIÇÃO - DESCRIPTION
 #
@@ -8,7 +7,8 @@
 #
 # Autor:      Lucas Morgani
 # Site:       -
-# Manutenção: ADICIONAR QUEM FEZ A ULTIMA MANUTENÇÃO
+# GitHub:     https://github.com/LucasMorgani
+# Manutenção:
 # Contato:    11 985168748         
 # ------------------------------------------------------------------------ #
 #  DESCREVER O PROGRAMA DETALHADAMENTE E A FORMA DE UTILIZAÇÃO
