@@ -26,6 +26,9 @@
 #       Alterando os ifs para case
 #   v1.2 - 21/02/2025, Lucas:
 #       Adicionando o -m (colocar em maiúsculo)
+#   v1.3 - 24/02/2025, Lucas:
+#        Adicionando while com shift e teste de variável
+#        Adicionando 2 flags
 # ------------------------------------------------------------------------ #
 # Testado em:
 #   bash 5.1.16
@@ -43,7 +46,7 @@ MENSAGEM_USO="
         -s - Ordem alfabética
         -m - Coloca em maiúsculo
 "
-VERSAO="v1.2"
+VERSAO="v1.3"
 CHAVE_ORDENA=0
 CHAVE_MAIUSCULO=0
 # ------------------------------------------------------------------------ #
@@ -58,14 +61,20 @@ CHAVE_MAIUSCULO=0
 
 # ------------------------------- EXECUÇÃO ------------------------------------------ #
 
-case "$1" in
-    -h) echo "$MENSAGEM_USO" && exit 0      ;;
-    -v) echo "$VERSAO" && exit 0            ;;
-    -s) CHAVE_ORDENA=1                      ;;
-    -m) CHAVE_MAIUSCULO=1                   ;;
-     *) echo "$USUARIOS"                    ;;
-esac
+while test -n "$1"
+do
+    case "$1" in
+        -h) echo "$MENSAGEM_USO" && exit 0                  ;;
+        -v) echo "$VERSAO" && exit 0                        ;;
+        -s) CHAVE_ORDENA=1                                  ;;
+        -m) CHAVE_MAIUSCULO=1                               ;;
+        *) echo "Opção inválida, valide o -h." && exit 1    ;;
+    esac
+    shift
+done
 
-[ $CHAVE_ORDENA -eq 1 ] && echo "$USUARIOS" | sort
-[ $CHAVE_MAIUSCULO -eq 1 ] && echo "$USUARIOS" | tr [a-z] [A-Z]
+[ $CHAVE_ORDENA -eq 1 ]     &&  USUARIOS=$(echo "$USUARIOS" | sort)
+[ $CHAVE_MAIUSCULO -eq 1 ]  &&  USUARIOS=$(echo "$USUARIOS" | tr [a-z] [A-Z])
+
+echo "$USUARIOS"
 # ------------------------------------------------------------------------ #
