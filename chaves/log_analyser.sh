@@ -21,7 +21,9 @@
 #
 #   v1.0 25/02/2025, Lucas:
 #       - Início do programa
-#       - Conta com a funcionalidade X
+#       - Projeto contando com os filtros "Erro, Warning, e Infos"
+#       - Realizando filtro por usuário
+#       - Encaminhando o resultado para um arquivo
 # ------------------------------------------------------------------------ #
 # Testado em:
 #   bash 5.1.16
@@ -38,6 +40,7 @@ MESSAGE="
             -w - WARNING
             -i - INFOS
             -u <user> - LOGS ESPECÍFICOS
+            -o <file name> - EXPORTAR PARA ARQUIVO
 "
 VERSION="1.0"
 
