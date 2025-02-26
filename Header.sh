@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 #
 # ------------------------------------------------------------------------ #
-# DESCRIÇÃO - DESCRIPTION
+# DESCRIÇÃO
 #
 # DESCREVER O PROGRAMA EM POUCAS PALAVRAS
 #
