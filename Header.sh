@@ -18,7 +18,7 @@
 #      $ ./
 #      Neste exemplo
 # ------------------------------------------------------------------------ #
-# HISTÓRICAO - CHANGELOG
+# HISTÓRICO - CHANGELOG
 #
 #   v1.0 //2025, Lucas:
 #       - Início do programa
