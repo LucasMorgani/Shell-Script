@@ -6,3 +6,12 @@
 
 7:carlos:carlos@gmail.com
 8:Magnólia:magss@gmail.com
+8::lucas@energec
+8::energec@gmail
+8:Claudio:claudio@energec
+8:Mauricio:mauricio@energec
+8:Cleber:cleber@gmail
+8:Boas:boas@gmail
+8:paula:paula@gmail
+9:cu:cu@gmail
+10:pum:@pum
