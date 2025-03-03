@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 #
 # --------------------------------HEADER---------------------------------- #
-# Criar arquivos numerados automaticamente
+# Verifica se um número é positivo ou negativo
 #
 # Autor:      Lucas Morgani
 # Site:       -
@@ -9,13 +9,11 @@
 # Manutenção:
 # Contato:    11 985168748         
 # ------------------------------------------------------------------------ #
-# Exemplos:
-#      $ ./criar_arquivos.sh
-#       $ Digite o nome padrão para criar os arquivos    <nome>
-#       $ Digite a quatidade de arquivos para criar      <qtde>
-#       $ Digite a extensão desejada para os arquivos    <extensão>
+#  DESCRIÇÃO DETALHADA
 #
-#      Preencha os requisitos para criar a quantidade solicitada de arquivos padronizados
+#  Exemplos:
+#      $ ./verifica_positivo_negativo.sh <numero>
+#       A verificação do numero será mostrada no terminal
 # ------------------------------------------------------------------------ #
 # TESTADO EM:
 #   bash 5.1.16
@@ -23,16 +21,12 @@
 
 
 # ------------------------------ VARIÁVEIS ------------------------------- #
-read -p "Digite o nome padrão para criar os arquivos                        "   NAMEFILE
-read -p "Digite a quantidade de arquivos para criar (sequencial de 1..x ).  "   NUMFILE
-read -p "Digite a extensão desejada para os arquivos                        "   EXTFILE
+NUMERO=$1
 # ------------------------------------------------------------------------ #
 
 
 # ------------------------------- EXECUÇÃO ------------------------------- #
-for ((i=1; i<=NUMFILE; i++)); do
-    touch "$NAMEFILE-$i.$EXTFILE"
-done
-
-echo "Todos os arquivos foram criados!"
+[[ $NUMERO -gt 0 ]] && echo "O número $NUMERO é positivo"
+[[ $NUMERO -lt 0 ]] && echo "O número $NUMERO é negativo"
+[[ $NUMERO -eq 0 ]] && echo "O número é um zero"
 # ------------------------------------------------------------------------ #

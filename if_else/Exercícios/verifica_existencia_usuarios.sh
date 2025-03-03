@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 #
 # --------------------------------HEADER---------------------------------- #
-# Criar arquivos numerados automaticamente
+# Verificando se determinado usuário existe dentro do sistema
 #
 # Autor:      Lucas Morgani
 # Site:       -
@@ -9,13 +9,9 @@
 # Manutenção:
 # Contato:    11 985168748         
 # ------------------------------------------------------------------------ #
-# Exemplos:
-#      $ ./criar_arquivos.sh
-#       $ Digite o nome padrão para criar os arquivos    <nome>
-#       $ Digite a quatidade de arquivos para criar      <qtde>
-#       $ Digite a extensão desejada para os arquivos    <extensão>
-#
-#      Preencha os requisitos para criar a quantidade solicitada de arquivos padronizados
+#  Exemplos:
+#      $ ./usuarios.sh <usuario>
+#      O programa irá validar se o usuário passado existe no sistema e mostrará no terminal.
 # ------------------------------------------------------------------------ #
 # TESTADO EM:
 #   bash 5.1.16
@@ -23,16 +19,14 @@
 
 
 # ------------------------------ VARIÁVEIS ------------------------------- #
-read -p "Digite o nome padrão para criar os arquivos                        "   NAMEFILE
-read -p "Digite a quantidade de arquivos para criar (sequencial de 1..x ).  "   NUMFILE
-read -p "Digite a extensão desejada para os arquivos                        "   EXTFILE
+USUARIO=$1
 # ------------------------------------------------------------------------ #
 
 
 # ------------------------------- EXECUÇÃO ------------------------------- #
-for ((i=1; i<=NUMFILE; i++)); do
-    touch "$NAMEFILE-$i.$EXTFILE"
-done
-
-echo "Todos os arquivos foram criados!"
+if id "$USUARIO" &>/dev/null; then                                              # Valida se o id $USUARIO existe. '&>/dev/null' encaminha qualquer mensagem (stdout or stderr) para o /dev/null.
+    echo "O usuário '$USUARIO' existe no sistema."
+else
+    echo "O usuário '$USUARIO' NÃO existe no sistema."
+fi
 # ------------------------------------------------------------------------ #

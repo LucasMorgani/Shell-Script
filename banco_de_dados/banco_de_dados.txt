@@ -1,8 +1,2 @@
-# Banco de Dados de usuário
-
-1:Mateus:mteus@gmail.com
-
-4:Carlos:carlos@gmail.com
-
-7:carlos:carlos@gmail.com
-8:Magnólia:magss@gmail.com
+1:lucas:lucas@gmail.com
+3:claudio:claudio@gmail.com

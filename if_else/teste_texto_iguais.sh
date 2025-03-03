@@ -1,7 +1,9 @@
 #!/usr/bin/env bash
 #
 # --------------------------------HEADER---------------------------------- #
-# Exibir os números pares de 1 a 20
+# Script básico demonstrando um outro tipo de estrutura para utilizar o if
+#
+#
 #
 # Autor:      Lucas Morgani
 # Site:       -
@@ -14,8 +16,18 @@
 # ------------------------------------------------------------------------ #
 
 
+# ------------------------------ VARIÁVEIS ------------------------------- #
+VAR="bola"
+VAR2="casa"
+# ------------------------------------------------------------------------ #
+
+
 # ------------------------------- EXECUÇÃO ------------------------------- #
-for i in {1..20}; do
-    (( i % 2 == 0 )) && echo "$i é par!"
-done
+if [[ "$VAR" = "$VAR2" ]]; then
+    echo "Os textos das variáveis são iguais"
+else
+    echo "Os textos das variáveis não são iguais"
+fi
+
+[ "$VAR" = "$VAR2" ] && echo "Os textos das variáveis são iguais"                 # Nesse tipo de estrutura não é possivel utilizar um else, usar somente para verificação.
 # ------------------------------------------------------------------------ #

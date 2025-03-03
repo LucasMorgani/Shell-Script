@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 #
 # --------------------------------HEADER---------------------------------- #
-# DESCRIÇÃO
+# Extrair titulo de postagens de site
 #
 #
 #
@@ -11,21 +11,23 @@
 # Manutenção:
 # Contato:    11 985168748         
 # ------------------------------------------------------------------------ #
-#  DESCRIÇÃO DETALHADA
+#  O programa extrai texto baseado na estrutura HTML de determinado tipo de site.
 #
 #
 #  Exemplos:
 #      $ ./extrair_texto.sh
-#      Neste exemplo o programa vai extrair os titulos e mostrar na tela.
+#      Neste exemplo, o programa vai extrair os titulos das postagens de um blog e printar no terminal
 # ------------------------------------------------------------------------ #
-# HISTÓRICAO - CHANGELOG
+# HISTÓRICO - CHANGELOG
 #
 #   v1.0 27/02/2025, Lucas:
 #       - Início do programa
-#       - Conta com a funcionalidade X
+#       - Conta com a funcionalidade de extração de titulo
+#   v1.1 03/03/2025
+#       - Ajustes finais sem alteração no código
 # ------------------------------------------------------------------------ #
 # TESTADO EM:
-#   bash 5.1.16
+#   - bash 5.1.16
 # ------------------------------------------------------------------------ #
 
 
