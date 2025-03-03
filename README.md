@@ -1,2 +1,3 @@
-# Shell-Script
-Códigos produzidos na linguagem Shell-Script
+Os códigos apresentados são baseados no curso "Shell Script: Do Básico ao Avançado", disponível na Udemy. O curso aborda desde conceitos introdutórios, como a estrutura de variáveis e boas práticas, até tópicos mais avançados, incluindo expressões regulares, extração de dados, manipulação de arquivos de configuração e criação de interfaces gráficas com Dialog.
+
+📌 Curso: [Shell Script: Do Básico ao Profissional](https://www.udemy.com/course/shell-script-do-basico-ao-profissional)

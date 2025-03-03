@@ -47,24 +47,10 @@ VERMELHO="\033[31;1m"
 
 
 # ------------------------------- FUNÇÕES -------------------------------- #
-PrintaUsuarios () {
-    local id="$(echo $linha | cut -d $SEP -f 1)"
-    local nome="$(echo $linha | cut -d $SEP -f 2)"
-    local email="$(echo $linha | cut -d $SEP -f 3)"
-
-    echo -e "${VERDE}ID: ${VERMELHO}$id"
-    echo -e "${VERDE}NOME: ${VERMELHO}$nome"
-    echo -e "${VERDE}E-MAIL: ${VERMELHO}$email"
-    echo "----------------------"
-}
-
 ListaUsuarios () {
-    while read -r linha
-    do
-        [ "$(echo $linha | cut -c1)" = "#" ] && continue
-        [ ! "$linha" ] && continue
-        PrintaUsuarios "$linha"
-    done < banco_de_dados.txt
+    egrep -v "^#|^$" "$ARQUIVO_DB" | tr : ' ' > "$TEMP"
+    dialog --title "Lista de Usuarios" --textbox "$TEMP" 20 40
+    rm -f "$TEMP"
 }
 
 ValidarUsuario () {
@@ -72,14 +58,20 @@ ValidarUsuario () {
 }
 
 InserirUsuario () {
-    local nome="$(echo $1 | cut -d $SEP -f 2)"
-    
-    if ValidarUsuario "$nome"; then
-        echo "Erro, usuário já existe"
-    else
-        echo "$*" >> "$ARQUIVO_DB"
-        echo "Usuário cadastrado com sucesso"
-    fi
+    local ultimo_id="$(egrep -v "^#|^$" $ARQUIVO_DB | sort | tail -n 1 | cut -d $SEP -f 1)"
+    local proximo_id=$(($ultimo_id+1))
+
+    local nome=$(dialog --title "Cadastro de Usuários" --stdout --inputbox "Digite o seu nome" 0 0)
+    ValidarUsuario "$nome" && {
+        dialog --title "ERRO!" --msgbox "Usuário já cadastrado no sistema!" 6 40
+    }
+
+    local email=$(dialog --title "Cadastro de Usuários" --stdout --inputbox "Digite o seu E-mail" 0 0)
+
+    echo "$proximo_id$SEP$nome$SEP$email" >> "$ARQUIVO_DB"
+    dialog --title "SUCESSO!" --msgbox "Usuário cadastrado com sucesso!" 6 40
+
+    ListaUsuarios
 }
 
 DeletarUsuario () {
@@ -98,4 +90,19 @@ OrdenaLista () {
 
 
 # ------------------------------- EXECUÇÃO ------------------------------- #
+while :
+do
+    acao=$(dialog --title "Gerenciamento de Usuários 2.0" \
+                  --stdout \
+                  --menu "Escolha uma das opções abaixo:" \
+                  0 0 0 \
+                  listar "Listar todos os usuários do sistema" \
+                  remover "Remover um usuário do sistema" \
+                  inserir "Inserir um novo usuário no sistema")
+    case $acao in
+        listar)      ListaUsuarios        ;;
+        inserir)    InserirUsuario       ;;
+        # remover) RemoverUsuario ;;
+    esac
+done
 # ------------------------------------------------------------------------ #
